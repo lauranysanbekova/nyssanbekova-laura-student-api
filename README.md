@@ -6,7 +6,7 @@
 **Docker image:** `nyssanbekova-laura-student-api:v1.0-laura`  
 **Jenkins job:** `Nyssanbekova_Laura_Student_API`
 
-A personalized Spring Boot REST CRUD API for student records, using PostgreSQL, Docker Compose, Git, and Jenkins CI.
+A personalized Spring Boot REST CRUD API for student records, using PostgreSQL, Docker Compose, Git, and Jenkins, with documented CRUD verification results.
 
 ## API endpoints
 
@@ -176,16 +176,3 @@ Feature: Personalized Spring Boot CRUD API with create, read,
 update, delete, and not-found response handling.
 
 Individual test data: Laura Nyssanbekova, DevOps Midterm.
-## CRUD Verification Results
-
-The API was tested locally with Docker Compose and PostgreSQL.
-
-- POST /api/students: 201 Created
-- GET /api/students: 200 OK
-- GET /api/students/1: 200 OK
-- PUT /api/students/1: 200 OK
-- GET /api/students/999: 404 Not Found
-- DELETE /api/students/1: 204 No Content
-- GET /api/students/1 after deletion: 404 Not Found
-
-Tested by Laura Nyssanbekova.
