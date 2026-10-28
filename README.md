@@ -6,7 +6,11 @@
 **Docker image:** `nyssanbekova-laura-student-api:v1.0-laura`  
 **Jenkins job:** `Nyssanbekova_Laura_Student_API`
 
+<<<<<<< HEAD
 A personalized Spring Boot REST CRUD API for student records, using PostgreSQL, Docker Compose, Git, and Jenkins, with Docker-based student management and automated testing.
+=======
+A personalized Spring Boot REST CRUD API for student records, using PostgreSQL, Docker Compose, Git, and Jenkins, with personalized student management and PostgreSQL database integration.
+>>>>>>> feature/nyssanbekova-laura-conflict
 
 ## API endpoints
 
