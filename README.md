@@ -168,3 +168,24 @@ Configure a GitHub webhook only if the Jenkins instance is reachable by GitHub; 
 - The application connects to PostgreSQL at hostname `postgres` inside the Compose network, not `localhost`.
 - The Compose volume `nyssanbekova-laura-postgres-data` preserves database data when containers restart or are recreated.
 - For Jenkins, the pipeline uses the system `gradle` command. If your instructor specifically requires the Gradle Wrapper, generate and commit it with `gradle wrapper --gradle-version 8.13`, then replace `gradle --no-daemon` with `./gradlew --no-daemon` in the Jenkinsfile and verify the wrapper works on your machine.
+## Individual CRUD Development
+
+Student: Laura Nyssanbekova
+
+Feature: Personalized Spring Boot CRUD API with create, read,
+update, delete, and not-found response handling.
+
+Individual test data: Laura Nyssanbekova, DevOps Midterm.
+## CRUD Verification Results
+
+The API was tested locally with Docker Compose and PostgreSQL.
+
+- POST /api/students: 201 Created
+- GET /api/students: 200 OK
+- GET /api/students/1: 200 OK
+- PUT /api/students/1: 200 OK
+- GET /api/students/999: 404 Not Found
+- DELETE /api/students/1: 204 No Content
+- GET /api/students/1 after deletion: 404 Not Found
+
+Tested by Laura Nyssanbekova.
