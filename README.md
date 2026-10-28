@@ -176,3 +176,16 @@ Feature: Personalized Spring Boot CRUD API with create, read,
 update, delete, and not-found response handling.
 
 Individual test data: Laura Nyssanbekova, DevOps Midterm.
+## CRUD Verification Results
+
+The API was tested locally with Docker Compose and PostgreSQL.
+
+- POST /api/students: 201 Created
+- GET /api/students: 200 OK
+- GET /api/students/1: 200 OK
+- PUT /api/students/1: 200 OK
+- GET /api/students/999: 404 Not Found
+- DELETE /api/students/1: 204 No Content
+- GET /api/students/1 after deletion: 404 Not Found
+
+Tested by Laura Nyssanbekova.
