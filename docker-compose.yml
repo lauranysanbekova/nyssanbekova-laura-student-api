@@ -1,0 +1,47 @@
+services:
+  app:
+    image: nyssanbekova-laura-student-api:v1.0-laura
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nyssanbekova-laura-app
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/laura_db
+      DB_USERNAME: ${DB_USERNAME:-laura}
+      DB_PASSWORD: ${DB_PASSWORD:-laura_local_password}
+      SERVER_PORT: 8080
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - laura-student-network
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: nyssanbekova-laura-postgres
+    environment:
+      POSTGRES_DB: laura_db
+      POSTGRES_USER: ${DB_USERNAME:-laura}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-laura_local_password}
+    volumes:
+      - laura_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    networks:
+      - laura-student-network
+    restart: unless-stopped
+
+networks:
+  laura-student-network:
+    name: nyssanbekova-laura-network
+    driver: bridge
+
+volumes:
+  laura_postgres_data:
+    name: nyssanbekova-laura-postgres-data
