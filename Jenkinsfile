@@ -15,12 +15,12 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'gradle --no-daemon clean bootJar'
+                sh './gradlew --no-daemon clean bootJar'
             }
         }
         stage('Test') {
             steps {
-                sh 'gradle --no-daemon test'
+                sh './gradlew --no-daemon test'
             }
         }
         stage('Docker Build') {
